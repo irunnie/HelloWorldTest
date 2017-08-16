@@ -11,11 +11,6 @@ class Service {
 
     private static final Logger log = Logger.getLogger(Service.class);
 
-    final private String MORNING = "06:00:00";
-    final private String DAY = "09:00:00";
-    final private String EVENING = "19:00:00";
-    final private String NIGHT = "23:00:00";
-
     private Date currentDate;
     private static SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
 
@@ -37,22 +32,22 @@ class Service {
         try {
 
             Date actual = dateFormat.parse(dateFormat.format(currentDate));
-            Date morning = dateFormat.parse(MORNING);
-            Date day = dateFormat.parse(DAY);
-            Date evening = dateFormat.parse(EVENING);
-            Date night = dateFormat.parse(NIGHT);
+            Date morning = dateFormat.parse(DayPhases.MORNING.getTime());
+            Date day = dateFormat.parse(DayPhases.DAY.getTime());
+            Date evening = dateFormat.parse(DayPhases.EVENING.getTime());
+            Date night = dateFormat.parse(DayPhases.NIGHT.getTime());
 
             if(actual.after(morning) && actual.before(day)){
-                phase = "morning";
+                phase = "MORNING";
             }
             else if(actual.after(day) && actual.before(evening)){
-                phase = "day";
+                phase = "DAY";
             }
             else if(actual.after(evening) && actual.before(night)){
-                phase = "evening";
+                phase = "EVENING";
             }
             else{
-                phase = "night";
+                phase = "NIGHT";
             }
 
         } catch (ParseException e) {

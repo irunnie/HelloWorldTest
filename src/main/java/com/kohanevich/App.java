@@ -10,10 +10,10 @@ public class App
 {
     private static final Logger log = Logger.getLogger(App.class);
 
-    private final static String morning = "morning";
-    private final static String day = "day";
-    private final static String evening = "evening";
-    private final static String night = "night";
+    private final static String morning = DayPhases.MORNING.name();
+    private final static String day = DayPhases.DAY.name();
+    private final static String evening = DayPhases.EVENING.name();
+    private final static String night = DayPhases.NIGHT.name();
 
     public static void main( String[] args )
     {

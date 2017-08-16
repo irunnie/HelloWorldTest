@@ -11,28 +11,32 @@ import static org.junit.Assert.assertEquals;
 public class ServiceTest {
 
     private Service service = new Service();
+    private String morning = DayPhases.MORNING.name();
+    private String day = DayPhases.DAY.name();
+    private String evening = DayPhases.EVENING.name();
+    private String night = DayPhases.NIGHT.name();
 
     @Test
     public void morningTest(){
         service.setCurrentDate("6:00:01");
-        assertEquals(service.getPhaseOfTheDay(), "morning");
+        assertEquals(service.getPhaseOfTheDay(), morning);
     }
 
     @Test
     public void dayTest(){
         service.setCurrentDate("10:51:22");
-        assertEquals(service.getPhaseOfTheDay(), "day");
+        assertEquals(service.getPhaseOfTheDay(), day);
     }
 
     @Test
     public void eveningTest(){
         service.setCurrentDate("21:22:01");
-        assertEquals(service.getPhaseOfTheDay(), "evening");
+        assertEquals(service.getPhaseOfTheDay(), evening);
     }
 
     @Test
     public void nightTest(){
         service.setCurrentDate("06:00:00");
-        assertEquals(service.getPhaseOfTheDay(), "night");
+        assertEquals(service.getPhaseOfTheDay(), night);
     }
 }
